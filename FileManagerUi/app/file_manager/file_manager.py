@@ -51,6 +51,27 @@ class FileManager:
             list_of_type.append(Path(name).suffix)
         return set(list_of_type)
 
+    def count_files_with_type(self):
+        result_map = {}
+        for fileName in self.all_types_file_list:
+            name = os.path.basename(fileName)
+            result_key = Path(name).suffix
+            try:
+                value = result_map[result_key]
+                # print("value: {}".format(value))
+                result_map[result_key] = value + 1
+            except Exception as ex:
+                result_map[result_key] = 1
+                # print("ex {}".format(ex))
+        # for key in result_map.keys():
+        #     print(key, '->', result_map[key])
+        return result_map
+
+    def count_duplicate(self):
+        result_map = {i: self.all_types_file_list.count(i) for i in self.all_types_file_list}
+        # print("result_map: {}".format(result_map))
+        return result_map
+
     @property
     def parent_dir(self):
         return self._parent_dir

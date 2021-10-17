@@ -33,6 +33,7 @@ class MainWindow(QMainWindow):
         parent_path_line_edit.setMaxLength(MainWindow._DEFAULT_MAX_LENGTH)
         parent_path_line_edit.setPlaceholderText(self._get_str_res(MainWindow._PARENT_PATH_HINT_ID))
         parent_path_line_edit.setText(FileManager.DEFAULT_PARENT_PATH)
+        print("Step 1")
         parent_path_line_edit.textChanged.connect(self.parent_path_text_change_listener)
 
         # enter file type
@@ -104,7 +105,10 @@ class MainWindow(QMainWindow):
         self._main_view_model.get_all_files_form_dir()
         count_file = str(self._main_view_model.count_found_files)
         self.count_all_file_q_label.setText(count_file)
+        print("Step 2")
         file_type_list = self._main_view_model.get_all_types()
+        print("Step 3")
+
         file_type_check_box_layout_h = QHBoxLayout()
         self._check_box_layout.addLayout(file_type_check_box_layout_h)
         for index, file_type in enumerate(file_type_list):

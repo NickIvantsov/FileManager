@@ -10,7 +10,6 @@ from app.ui.main.main_ui import MainWindow
 
 app = QApplication(sys.argv)
 # Create a Qt widget, which will be our window.
-# window = MainWindow()
 window = MainWindow()
 window.show()
 # IMPORTANT!!!!! Windows are hidden by default.

@@ -62,6 +62,10 @@ class MainViewModel:
     def get_all_types(self):
         return self._file_manager.get_all_types()
 
+    def count_files_with_type(self):
+        print("Step 1")
+        return self._file_manager.count_files_with_type()
+
     def clear_all_types_file_list(self):
         self._file_manager._all_types_file_list.clear()
 
